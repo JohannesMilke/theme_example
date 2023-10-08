@@ -1,53 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:theme_example/main.dart';
-import 'package:theme_example/page/profile_widget.dart';
-import 'package:theme_example/provider/theme_provider.dart';
-import 'package:theme_example/widget/change_theme_button_widget.dart';
+import '../main.dart';
+import '../page/profile_widget.dart';
+import '../widget/change_theme_button_widget.dart';
 
 import 'navigationbar_widget.dart';
 
 class HomePage extends StatelessWidget {
-  // @override
-  // Widget build(BuildContext context) => Scaffold(
-  //       appBar: AppBar(
-  //         iconTheme: Theme.of(context).iconTheme,
-  //         backgroundColor: Colors.transparent,
-  //         leading: Icon(Icons.menu),
-  //         title: Text(MyApp.title),
-  //         elevation: 0,
-  //         actions: [
-  //           ChangeThemeButtonWidget(),
-  //         ],
-  //       ),
-  //       body: ProfileWidget(),
-  //       extendBody: true,
-  //       bottomNavigationBar: NavigationBarWidget(),
-  //     );
+  const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final text = Provider.of<ThemeProvider>(context).themeMode == ThemeMode.dark
-        ? 'DarkTheme'
-        : 'LightTheme';
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        title: Text(MyApp.title),
-        actions: [
-          ChangeThemeButtonWidget(),
-        ],
-      ),
-      body: Center(
-        child: Text(
-          'Hello $text!',
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-          ),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor: Colors.transparent,
+          leading: const Icon(Icons.menu),
+          title: const Text(MainApp.title),
+          elevation: 0,
+          actions: const [
+            ChangeThemeButtonWidget(),
+          ],
         ),
-      ),
-    );
-  }
+        body: const ProfileWidget(),
+        extendBody: true,
+        bottomNavigationBar: const NavigationBarWidget(),
+      );
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   final text = Provider.of<ThemeProvider>(context).themeMode == ThemeMode.dark
+  //       ? 'DarkTheme'
+  //       : 'LightTheme';
+
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       backgroundColor: Colors.orange,
+  //       title: const Text(MainApp.title),
+  //       actions: const [
+  //         ChangeThemeButtonWidget(),
+  //       ],
+  //     ),
+  //     body: Center(
+  //       child: Text(
+  //         'Hello $text!',
+  //         style: const TextStyle(
+  //           fontSize: 32,
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
